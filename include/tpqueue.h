@@ -7,9 +7,7 @@
 
 template<typename T>
 class TPQueue {
-
-public:
-
+ public:
   T pop() {
     T result = queue.front();
     queue.erase(queue.begin());
@@ -23,10 +21,8 @@ public:
     });
   }
 
-private:
-
+ private:
   std::vector<T> queue;
-
 };
 
 struct SYM {
