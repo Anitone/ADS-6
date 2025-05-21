@@ -11,10 +11,6 @@ class TPQueue {
 public:
 
   T pop() {
-    if (queue.empty()) {
-      throw std::runtime_error("queue empty");
-    }
-
     T result = queue.front();
     queue.erase(queue.begin());
     return result;
