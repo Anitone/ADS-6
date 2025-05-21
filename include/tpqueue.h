@@ -2,9 +2,35 @@
 #ifndef INCLUDE_TPQUEUE_H_
 #define INCLUDE_TPQUEUE_H_
 
+#include<vector>
+#include<algorithm>
+
 template<typename T>
 class TPQueue {
-  // реализация шаблона очереди с приоритетом на связанном списке
+
+public:
+
+  T pop() {
+    if (queue.empty()) {
+      throw std::runtime_error("queue empty");
+    }
+
+    T result = queue.front();
+    queue.erase(queue.begin());
+    return result;
+  }
+
+  void push(const T& element) {
+    queue.push_back(element);
+    std::sort(queue.begin(), queue.end(), [](const T& a, const T& b) {
+      return a.prior > b.prior;
+    });
+  }
+
+private:
+
+  std::vector<T> queue;
+
 };
 
 struct SYM {
